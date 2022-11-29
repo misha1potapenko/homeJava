@@ -19,10 +19,32 @@ public class third {
         {
             // читаем посимвольно
             BufferedReader reader = new BufferedReader(fr);
-            String c;
-            while((c = reader.read())== null){
+            String str1;
+            while((str1 = reader.readLine())!= null){
+//                System.out.println(str);
+                String str2 = str1.replace("\"","");
+                String str = str2.replace("}","");
+                String[] words = str.split(",");
+//                for (String name1: words) {
+//                    System.out.println(name1);
+                  String forName = words[0];
+                  String forCountry = words[1];
+                  String forCity = words[2];
+                  String[] surname = forName.split(":");
+                  String[] mark = forCountry.split(":");
+                  String[] subject = forCity.split(":");
+                  StringBuilder sql = new StringBuilder();
+                  sql.append("Студент ");
+                  sql.append(surname[1]);
+                  sql.append(" ");
+                  sql.append("получил оценку ");
+                  sql.append(mark[1]);
+                  sql.append(" ");
+                  sql.append("по предмету ");
+                  sql.append(subject[1]);
+                  sql.append(" ");
+                  System.out.println(sql);
 
-                System.out.print((char)c);
             }
         }
         catch(IOException ex){
