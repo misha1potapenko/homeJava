@@ -9,5 +9,25 @@
 //        Студент Краснов получил 5 по предмету Физика.
 
 
+import java.io.*;
+
 public class third {
+
+    public static void main(String[] args) {
+
+        try(FileReader fr = new FileReader("txtForThird.txt"))
+        {
+            // читаем посимвольно
+            BufferedReader reader = new BufferedReader(fr);
+            String c;
+            while((c = reader.read())== null){
+
+                System.out.print((char)c);
+            }
+        }
+        catch(IOException ex){
+
+            System.out.println(ex.getMessage());
+        }
+    }
 }
