@@ -15,6 +15,26 @@ public class minMax {
             int number = num1.nextInt();
             num.add(i,number);
         }
-        System.out.println(num);
+        System.out.println("Начальный список: " + num);
+
+
+        int min = num.get(0);
+        for (int i = 0; i < quantity; i++) {
+            if(min > num.get(i)) min = num.get(i);
+
+        }
+        int max = num.get(0);
+        for (int i = 0; i < quantity; i++) {
+            if(max < num.get(i)) max = num.get(i);
+
+        }
+        float sum = 0f;
+        for (int i = 0; i < quantity; i++) {
+            sum = sum + num.get(i);
+
+        }
+        System.out.println("Min = " + min);
+        System.out.println("Max = " + max);
+        System.out.println("Avr = " + sum/quantity);
     }
 }
