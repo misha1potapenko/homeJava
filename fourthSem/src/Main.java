@@ -5,6 +5,8 @@ public class Main {
 
         float res1 = results(5f,7.3f);
         printAnyThink(String.valueOf(res1));
+        int res3 = factor(7);
+        printAnyThink(String.valueOf(res3));
 
     }
     public static void printAnyThink(String any){
@@ -16,4 +18,19 @@ public class Main {
         return res;
 
     }
+    public static int factor(int n){
+         if (n <= 1) {
+             return 1;
+         }
+         else {
+             int res2;
+             res2 = n * factor(n-1);
+            return res2;
+         }
+    }
+//    public static int[] array(int[] arr, int start, int finish){
+//        int[] leftArray = array(arr, start,finish/2);
+//
+//
+//    }
 }
