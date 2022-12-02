@@ -15,10 +15,11 @@ public class Main {
 
         }
         System.out.print(listForReturn + " ");
+
+                System.out.println();
+    }
+    public static void returnLinkedList(LinkedList<Integer>){
         System.out.println();
-        for (int i = quantity; i > 0 ; i--) {
-            listForReturn.add(i, i);
-        }
-        System.out.print(listForReturn + " ");
+
     }
 }
