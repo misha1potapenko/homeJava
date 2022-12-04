@@ -6,7 +6,7 @@
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class for4Sem {
+public class second{
     public static void main(String[] args) {
         LinkedList<Integer> firstLastPosition = new LinkedList<>();
         firstLastPosition.add(2332);
