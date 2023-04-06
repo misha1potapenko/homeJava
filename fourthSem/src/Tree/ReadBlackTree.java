@@ -1,18 +1,16 @@
 package Tree;
 
 
-import java.util.Objects;
-
-public class RBTree {
+public class ReadBlackTree {
     private final boolean RED = false;
     private final boolean BLACK = true;
     private int key;
     private boolean color;
-    private RBTree left;
-    private RBTree right;
-    private RBTree parent;
+    private ReadBlackTree left;
+    private ReadBlackTree right;
+    private ReadBlackTree parent;
 
-    public RBTree(int key) {
+    public ReadBlackTree(int key) {
         this.key = key;
         this.color = RED;
     }
@@ -33,27 +31,27 @@ public class RBTree {
         this.color = color;
     }
 
-    public RBTree getLeft() {
+    public ReadBlackTree getLeft() {
         return left;
     }
 
-    public void setLeft(RBTree left) {
+    public void setLeft(ReadBlackTree left) {
         this.left = left;
     }
 
-    public RBTree getRight() {
+    public ReadBlackTree getRight() {
         return right;
     }
 
-    public void setRight(RBTree right) {
+    public void setRight(ReadBlackTree right) {
         this.right = right;
     }
 
-    public RBTree getParent() {
+    public ReadBlackTree getParent() {
         return parent;
     }
 
-    public void setParent(RBTree parent) {
+    public void setParent(ReadBlackTree parent) {
         this.parent = parent;
     }
 
