@@ -11,6 +11,30 @@ public class LessonReadBlackTree {
         if (node.value == value){
             return false;
         }
+        else
+            if (node.value > value){
+                if (node.leftChild != null){
+                    boolean result = addNode(node.leftChild, value);
+                    node.leftChild = rebalance(node.leftChild);
+                    return result;
+                }else {
+                    node.leftChild = new Node();
+                    node.leftChild.color = Color.RED;
+                    node.leftChild.value = value;
+                    return true;
+                }
+        } else {
+                if (node.rightChild != null) {
+                    boolean result = addNode(node.rightChild, value);
+                    node.rightChild = rebalance(node.rightChild);
+                    return result;
+                } else {
+                    node.rightChild = new Node();
+                    node.rightChild.color = Color.RED;
+                    node.rightChild.value = value;
+                    return true;
+                }
+            }
     }
 
     private Node rebalance(Node node) {}
@@ -18,6 +42,12 @@ public class LessonReadBlackTree {
     private Node rightSwap(Node node){}
 
     private Node leftSwap(Node node){}
+
+    private Node colorSwap (Node node){
+        node.rightChild.color = Color.BLACK;
+        node.leftChild.color = Color.BLACK;
+        node.color = Color.RED;
+    }
 
 
 
