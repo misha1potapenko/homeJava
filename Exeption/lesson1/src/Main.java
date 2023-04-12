@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
 Реализуйте метод, принимающий в качестве аргументов два целочисленных массива,
  и возвращающий новый массив, каждый элемент которого равен разности элементов
@@ -12,20 +14,26 @@
 */
 
 public class Main {
-    public static void main(String[] args) {
+    static Random random = new Random();
 
-        System.out.println("Hello world!");
+    public static void main(String[] args) {
+        int[] arr1 = {11,4,5,10,6,7,4};
+        int[] arr2 = {2,4,5,8,6,7,4,9};
+        difArr(arr1,arr2);
+
     }
 
-    public int[] difArr (int[] arr1, int[] arr2){
-        int[] dif = null;
+    static int[] difArr (int[] arr1, int[] arr2){
+        int[] dif = new int[arr1.length];
         for (int i = 0; i < arr1.length; i++) {
             if (arr1.length == arr2.length){
                 dif[i] = arr1[i] - arr2[i];
+                System.out.println(dif[i]);
             }
             else
                 System.out.println("Массивы не равны, введите два массива равных по длине");
         }
+
         return dif;
     }
 }
