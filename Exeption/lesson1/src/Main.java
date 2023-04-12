@@ -1,4 +1,4 @@
-/*
+/**
 Реализуйте метод, принимающий в качестве аргументов два целочисленных массива,
  и возвращающий новый массив, каждый элемент которого равен разности элементов
  двух входящих массивов в той же ячейке. Если длины массивов не равны,
@@ -15,5 +15,17 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Hello world!");
+    }
+
+    public int[] difArr (int[] arr1, int[] arr2){
+        int[] dif = null;
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1.length == arr2.length){
+                dif[i] = arr1[i] - arr2[i];
+            }
+            else
+                System.out.println("Массивы не равны, введите два массива равных по длине");
+        }
+        return dif;
     }
 }
