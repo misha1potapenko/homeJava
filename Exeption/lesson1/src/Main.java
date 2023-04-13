@@ -17,17 +17,17 @@ public class Main {
     static Random random = new Random();
 
     public static void main(String[] args) {
-        int[] arr1 = new int[random.nextInt(2)+6];  // создание первого массива
-        int[] arr2 = new int[random.nextInt(2)+6];   // создание второго  массива
-        difArr(arr1,arr2);
+        int[] arr1 = new int[random.nextInt(2) + 6];  // создание первого массива
+        int[] arr2 = new int[random.nextInt(2) + 6];   // создание второго  массива
+        difArr(arr1, arr2);
 
     }
 
-    static int[] difArr (int[] arr1, int[] arr2){
+    static int[] difArr(int[] arr1, int[] arr2) {
+        int[] dif = new int[arr1.length]; // создание третьего массива для добавления разности первых двух
         try {
-            int[] dif = new int[arr1.length]; // создание третьего массива для добавления разности первых двух
             if (arr1.length != arr2.length) {
-                throw new RuntimeException(String.format("Массивы не равны, нужны два  масива равных по длинне"));
+                throw new CustomArraySizeException("Масивы не совпадают по длинне",arr1.length,arr2.length);
             } else
                 for (int i = 0; i < arr1.length; i++) {   // заполнение двух массивов данными
                     arr1[i] = random.nextInt(10);
@@ -38,15 +38,17 @@ public class Main {
                 dif[i] = arr1[i] - arr2[i]; // вычисление разности междц двумя массивами
                 System.out.printf("%d,", dif[i]);
             }
-            return dif;
-        }catch (CustomArraySizeException e){
+
+        } catch (CustomArraySizeException e) {
             System.out.println(e.getMessage());
             System.out.printf("Длина первого массива: %d\nДлина второго массива: %d\n",
                     e.getLength1(), e.getLength2());
+        }
+        return dif;
     }
 }
 
-class CustomArraySizeException extends RuntimeException{
+class CustomArraySizeException extends Exception{
 
     private int length1;
     private int length2;
