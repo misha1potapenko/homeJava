@@ -19,6 +19,10 @@ public class Main {
     public static void main(String[] args) {
         int[] arr1 = new int[random.nextInt(2) + 6];  // создание первого массива
         int[] arr2 = new int[random.nextInt(2) + 6];   // создание второго  массива
+        for (int i = 0; i < arr1.length; i++) {   // заполнение двух массивов данными
+            arr1[i] = random.nextInt(10);
+            arr2[i] = random.nextInt(10);
+        }
         difArr(arr1, arr2);
 
     }
