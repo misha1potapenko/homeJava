@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -19,8 +20,8 @@ public class InputFloat {
     static Random random = new Random();
 
     public static void main(String[] args) {
-        inputUser();
-        test2();
+       inputUser();
+       test2();
 
     }
 
@@ -47,8 +48,29 @@ public class InputFloat {
         //2. Если необходимо, исправьте данный код
         //  (задание 2 https://docs.google.com/document/d/17EaA1lDxzD5YigQ5OAal60fOFKVoCbEJqooB9XfhT7w/edit)
         static void test2(){
+            int[] intArray = new int[random.nextInt(2) + 9];
+            for (int i = 0; i < intArray.length; i++) {
+                intArray[i] = random.nextInt(66);
+            }
             try {
-                int d = 0;
+                int d = random.nextInt(2);
+                double catchedRes1 = intArray[8] / d;
+                System.out.println("catchedRes1 = " + catchedRes1);
+            } catch (ArithmeticException e) {
+                System.out.println("Catching exception: " + e);
+            }
+
+        }
+        /** Дан следующий код, исправьте его там, где требуется
+    // (задание 3 https://docs.google.com/document/d/17EaA1lDxzD5YigQ5OAal60fOFKVoCbEJqooB9XfhT7w/edit)
+        */
+        static void test3(){
+            int[] intArray = new int[random.nextInt(2) + 9];
+            for (int i = 0; i < intArray.length; i++) {
+                intArray[i] = random.nextInt(66);
+            }
+            try {
+                int d = random.nextInt(2);
                 double catchedRes1 = intArray[8] / d;
                 System.out.println("catchedRes1 = " + catchedRes1);
             } catch (ArithmeticException e) {
