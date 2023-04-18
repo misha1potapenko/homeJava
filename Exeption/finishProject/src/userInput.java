@@ -31,47 +31,35 @@ import java.util.Scanner;
 public class userInput {
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        addSurname();
     }
 
-    static void addData(){
+    static String[] addSurname() {
+        String[] surname = new String[3];
 
-
-        while (true){
-            System.out.print("Введите фамилию имя отчество через пробел: ");
-            if (scanner.hasNext()){
-                int searchNumber = scanner.nextInt();
-                int[] array = new int[random.nextInt(5) + 1];
-                if (random.nextInt(3) == 0)
-                    array = null;
-                if (array != null){
-                    for (int i = 0; i < array.length; i++){
-                        array[i] = random.nextInt(10);
-                        System.out.printf("%d\t", array[i]);
-                    }
-                    System.out.println();
+        while (surname[2]!= null) {
+            System.out.print("Введите фамилию: ");
+            if (scanner.hasNextLine()) {
+                surname[1] = scanner.nextLine();
+                  scanner.nextLine();
                 }
-
-                int codeResult = processArray(array, searchNumber);
-                switch (codeResult){
-                    case -1 -> System.out.println("Длина массива менее трех символов.");
-                    case -2 -> System.out.println("Элемент не найден.");
-                    case -3 -> System.out.println("Массив некорректно проинициализирован.");
-                    default -> {
-                        System.out.println("Массив успешно обработан. Завершение работы приложения.");
-                        System.out.printf("Элемент найден по индексу: %d\n", codeResult);
-                        return;
-                    }
-                }
-
-            }
-            else{
-                System.out.println("Число для поиска указано некорректно.\nПовторите попытку ввода.");
+            else System.out.println("Вы ввели не верно, введите корректно");
+            System.out.print("Введите имя: ");
+            if (scanner.hasNextLine()) {
+                surname[1] = scanner.nextLine();
                 scanner.nextLine();
+            }else System.out.println("Вы ввели не верно, введите корректно");
+            System.out.print("Введите отчество: ");
+            if (scanner.hasNextLine()) {
+                surname[1] = scanner.nextLine();
+                scanner.nextLine();
+            }else System.out.println("Вы ввели не верно, введите корректно");
             }
+
+        return surname;
         }
 
-    }
-
 }
+
