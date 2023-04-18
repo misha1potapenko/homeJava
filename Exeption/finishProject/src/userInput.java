@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -33,33 +34,66 @@ public class userInput {
     static Random random = new Random();
 
     public static void main(String[] args) {
-        addSurname();
+        //addSurname();
+        addDateOfBirth();
     }
 
     static String[] addSurname() {
         String[] surname = new String[3];
 
-        while (surname[2]!= null) {
+        while (surname[2] == null) {
             System.out.print("Введите фамилию: ");
             if (scanner.hasNextLine()) {
-                surname[1] = scanner.nextLine();
-                  scanner.nextLine();
+                surname[0] = scanner.nextLine();
                 }
             else System.out.println("Вы ввели не верно, введите корректно");
             System.out.print("Введите имя: ");
-            if (scanner.hasNextLine()) {
+            if (scanner.hasNextLine() ) {
                 surname[1] = scanner.nextLine();
-                scanner.nextLine();
-            }else System.out.println("Вы ввели не верно, введите корректно");
+            }
+            else System.out.println("Вы ввели не верно, введите корректно");
+
             System.out.print("Введите отчество: ");
             if (scanner.hasNextLine()) {
-                surname[1] = scanner.nextLine();
-                scanner.nextLine();
-            }else System.out.println("Вы ввели не верно, введите корректно");
+                surname[2] = scanner.nextLine();
             }
+            else System.out.println("Вы ввели не верно, введите корректно");
+            }
+        for (String str: surname
+             ) {
+            System.out.printf("%s ",str);
 
-        return surname;
         }
+        return  surname;
+        }
+    static String[] addDateOfBirth() {
+        String[] dateOfBirth = new String[3];
+
+        while (dateOfBirth[2] == null) {
+            System.out.print("Введите число месяца: ");
+            if (scanner.hasNextInt()) {
+                dateOfBirth[0] = scanner.nextLine();
+            }
+            else System.out.println("Вы ввели не верно, введите корректно");
+            System.out.print("Введите месяц числом: ");
+            if (scanner.hasNextInt() ) {
+                dateOfBirth[1] = scanner.nextLine();
+            }
+            else System.out.println("Вы ввели не верно, введите корректно");
+
+            System.out.print("Введите год: ");
+            if (scanner.hasNextInt()) {
+                dateOfBirth[2] = scanner.nextLine();
+            }
+            else System.out.println("Вы ввели не верно, введите корректно");
+        }
+        for (String str: dateOfBirth
+        ) {
+            System.out.printf("%s.",str);
+
+        }
+        return  dateOfBirth;
+    }
 
 }
 
