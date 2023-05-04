@@ -1,3 +1,6 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -34,8 +37,24 @@ public class userInput {
     static Random random = new Random();
 
     public static void main(String[] args) {
-        //addSurname();
-        addDateOfBirth();
+        try(FileWriter writer = new FileWriter("NameSurname.txt", false))
+        {
+            // запись всей строки
+            String[] surname = addSurname();
+            String text = "Hello Gold!";
+            writer.write(String.valueOf(surname));
+            // запись по символам
+            writer.append('\n');
+            writer.append('E');
+
+            writer.flush();
+        }
+        catch(IOException ex){
+
+            System.out.println(ex.getMessage());
+        }
+//        addSurname();
+//        addDateOfBirth();
     }
 
     static String[] addSurname() {
