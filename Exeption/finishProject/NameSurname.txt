@@ -1,2 +1,1 @@
-[Ljava.lang.String;@5e9f23b4
-E
+т ло д 

@@ -37,74 +37,95 @@ public class userInput {
     static Random random = new Random();
 
     public static void main(String[] args) {
-        try(FileWriter writer = new FileWriter("NameSurname.txt", false))
-        {
-            // запись всей строки
-            String[] surname = addSurname();
-            String text = "Hello Gold!";
-            writer.write(String.valueOf(surname));
-            // запись по символам
-            writer.append('\n');
-            writer.append('E');
 
-            writer.flush();
+
+//        try(FileWriter writer = new FileWriter("NameSurname.txt", false))
+//        {
+//            // запись всей строки
+//            String[] surname = addSurname();
+//            String text = "Hello Gold!";
+//            writer.write(String.valueOf(surname));
+//            // запись по символам
+//            writer.append('\n');
+//            writer.append('E');
+//
+//            writer.flush();
+//        }
+//        catch(IOException ex){
+//
+//            System.out.println(ex.getMessage());
+//        }
+    addSurname();
+    addDateOfBirth();
+    }
+
+    static String[] addSurname() {
+        String[] surname = new String[3];
+        try(FileWriter writer = new FileWriter("NameSurname.txt", false)) {
+            while (surname[2] == null) {
+                System.out.print("Введите фамилию: ");
+                if (scanner.hasNextLine()) {
+                    surname[0] = scanner.nextLine();
+                    writer.write(surname[0]);
+                    writer.write(" ");
+                } else System.out.println("Вы ввели не верно, введите корректно");
+                System.out.print("Введите имя: ");
+                if (scanner.hasNextLine()) {
+                    surname[1] = scanner.nextLine();
+                    writer.write(surname[1]);
+                    writer.write(" ");
+                } else System.out.println("Вы ввели не верно, введите корректно");
+
+                System.out.print("Введите отчество: ");
+                if (scanner.hasNextLine()) {
+                    surname[2] = scanner.nextLine();
+                    writer.write(surname[2]);
+                    writer.write(" ");
+                } else System.out.println("Вы ввели не верно, введите корректно");
+            }
         }
         catch(IOException ex){
 
             System.out.println(ex.getMessage());
         }
-//        addSurname();
-//        addDateOfBirth();
-    }
-
-    static String[] addSurname() {
-        String[] surname = new String[3];
-
-        while (surname[2] == null) {
-            System.out.print("Введите фамилию: ");
-            if (scanner.hasNextLine()) {
-                surname[0] = scanner.nextLine();
-                }
-            else System.out.println("Вы ввели не верно, введите корректно");
-            System.out.print("Введите имя: ");
-            if (scanner.hasNextLine() ) {
-                surname[1] = scanner.nextLine();
-            }
-            else System.out.println("Вы ввели не верно, введите корректно");
-
-            System.out.print("Введите отчество: ");
-            if (scanner.hasNextLine()) {
-                surname[2] = scanner.nextLine();
-            }
-            else System.out.println("Вы ввели не верно, введите корректно");
-            }
         for (String str: surname
              ) {
             System.out.printf("%s ",str);
 
         }
+        System.out.print("\n");
         return  surname;
         }
-    static String[] addDateOfBirth() {
+
+
+        static String[] addDateOfBirth() {
         String[] dateOfBirth = new String[3];
+        try(FileWriter writer = new FileWriter("NameSurname.txt", true)) {
+            while (dateOfBirth[2] == null) {
+                System.out.print("Введите число месяца (даты рождения): ");
+                if (scanner.hasNextInt()) {
+                    dateOfBirth[0] = scanner.nextLine();
+                    writer.write(dateOfBirth[0]);
+                    writer.write(".");
+                } else System.out.println("Вы ввели не верно, введите корректно");
+                System.out.print("Введите месяц числом: ");
+                if (scanner.hasNextInt()) {
+                    dateOfBirth[1] = scanner.nextLine();
+                    writer.write(dateOfBirth[1]);
+                    writer.write(".");
+                } else System.out.println("Вы ввели не верно, введите корректно");
 
-        while (dateOfBirth[2] == null) {
-            System.out.print("Введите число месяца: ");
-            if (scanner.hasNextInt()) {
-                dateOfBirth[0] = scanner.nextLine();
+                System.out.print("Введите год: ");
+                if (scanner.hasNextInt()) {
+                    dateOfBirth[2] = scanner.nextLine();
+                    writer.write(dateOfBirth[2]);
+                    writer.write(" ");
+                } else System.out.println("Вы ввели не верно, введите корректно");
             }
-            else System.out.println("Вы ввели не верно, введите корректно");
-            System.out.print("Введите месяц числом: ");
-            if (scanner.hasNextInt() ) {
-                dateOfBirth[1] = scanner.nextLine();
-            }
-            else System.out.println("Вы ввели не верно, введите корректно");
+        }
+        catch(IOException ex){
 
-            System.out.print("Введите год: ");
-            if (scanner.hasNextInt()) {
-                dateOfBirth[2] = scanner.nextLine();
-            }
-            else System.out.println("Вы ввели не верно, введите корректно");
+            System.out.println(ex.getMessage());
         }
         for (String str: dateOfBirth
         ) {
