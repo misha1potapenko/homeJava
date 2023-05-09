@@ -101,18 +101,25 @@ public class userInput {
         static String[] addDateOfBirth() {
         String[] dateOfBirth = new String[3];
         try(FileWriter writer = new FileWriter("NameSurname.txt", true)) {
-            while (dateOfBirth[2] == null) {
+            int caunt = 0;
+            while (caunt < 3) {
                 System.out.print("Введите число месяца (даты рождения): ");
                 if (scanner.hasNextInt()) {
                     dateOfBirth[0] = scanner.nextLine();
                     writer.write(dateOfBirth[0]);
                     writer.write(".");
-                } else System.out.println("Вы ввели не верно, введите корректно");
+                    caunt++;
+
+                } else {
+                    System.out.println("Вы ввели не верно, введите корректно");
+                    scanner.nextLine();
+                }
                 System.out.print("Введите месяц числом: ");
                 if (scanner.hasNextInt()) {
                     dateOfBirth[1] = scanner.nextLine();
                     writer.write(dateOfBirth[1]);
                     writer.write(".");
+                    caunt++;
                 } else System.out.println("Вы ввели не верно, введите корректно");
 
                 System.out.print("Введите год: ");
@@ -120,6 +127,7 @@ public class userInput {
                     dateOfBirth[2] = scanner.nextLine();
                     writer.write(dateOfBirth[2]);
                     writer.write(" ");
+                    caunt++;
                 } else System.out.println("Вы ввели не верно, введите корректно");
             }
         }
