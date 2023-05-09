@@ -20,8 +20,26 @@ public class Input {
         String birthday = scanner.next();
         // проверяем что ввел пользователь (переберем строку по элементам)
         String forBirthday = "12.12.1988"; // для проверки создаем образец
-        System.out.println("Введите номер телефона ");
-        String phone = scanner.next();
+        String phone = null;
+
+
+        try {
+            System.out.println("Введите номер телефона ");
+            phone = Integer.toString(scanner.nextInt()); // преобразовали int  в строку, так как в файл пишется строка
+        } catch (Exception ex1){
+            System.out.println(ex1.getMessage());
+        }
+
+        String gender = null;
+        while (true){
+            System.out.println("Введите пол (f или m ): ");
+            gender = scanner.next();
+            if (gender.equals("f")) break;
+            else System.out.println("Введите f или m");
+            if (gender.equals("m")) break;
+            else System.out.println("Введите f или m");
+        }
+
 
         try {
             for (int i = 0; i < birthday.length(); i++) {
@@ -50,6 +68,8 @@ public class Input {
             writer.write(birthday);
             writer.write(" ");
             writer.write(phone);
+            writer.write(" ");
+            writer.write(gender);
 
         }
         catch(IOException ex) {
