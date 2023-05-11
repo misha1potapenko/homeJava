@@ -1,5 +1,6 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -53,15 +54,15 @@ public class Input {
                         birthday.length() == 10)  {
                     break;}
                 else {
-                    System.out.println("Введите корректно дату рождения ");
+                    System.out.println("Введите корректно дату рождения dd.mm.yyyy:");
                     birthday = scanner.next();
                     break;
                 }
             } catch (StringIndexOutOfBoundsException ex2){
 
                 System.out.println(ex2.getMessage());
-                System.out.println("Введите корректно дату рождения ");
-                birthday = scanner.next();
+                System.out.println("Введите корректно дату рождения dd.mm.yyyy: ");
+                birthday = scanner.nextLine();
                 break;
             }
 
@@ -72,16 +73,20 @@ public class Input {
 
 
 
-        String phone = null;
+        String phone;
         while (true) {
             try {
                 System.out.println("Введите номер телефона ");
-                phone = Integer.toString(scanner.nextInt()); // преобразовали int  в строку, так как в файл пишется строка
+                phone = String.valueOf(scanner.nextInt()); // преобразовали int  в строку, так как в файл пишется строка
                 break;
-            } catch (Exception ex1) {
+            } catch (InputMismatchException ex1) {
                 System.out.println(ex1.getMessage());
+                System.out.println("Введите корректно номер телефона");
+                scanner.nextLine();
             }
         }
+
+
         String gender = null;
         while (true){
             System.out.println("Введите пол (f или m ): ");
