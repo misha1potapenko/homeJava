@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Finish/Finish.iml" filepath="$PROJECT_DIR$/Finish/Finish.iml" />
       <module fileurl="file://$PROJECT_DIR$/finishProject.iml" filepath="$PROJECT_DIR$/finishProject.iml" />
     </modules>
   </component>
