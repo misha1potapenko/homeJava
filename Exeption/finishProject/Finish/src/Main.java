@@ -8,7 +8,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
 
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("cat.dat")))
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("cat.txt")))
         {
 
             System.out.println("Введите кличку кота(кошки): ");
