@@ -1,14 +1,16 @@
-import java.util.Date;
+import java.io.Serializable;
+import java.time.LocalDate;
 
-public class Hamsters {
+
+public class Hamsters implements Serializable {
     private String name;
-    private Date birhday;
+    private LocalDate birthday;
     private String breed;
 
 
-    public Hamsters(String name, Date birhday, String breed) {
+    public Hamsters(String name, LocalDate birthday, String breed) {
         this.name = name;
-        this.birhday = birhday;
+        this.birthday = birthday;
         this.breed = breed;
     }
 }

@@ -1,12 +1,13 @@
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class Cats implements Serializable {
     private String name;
-    private Date birhday;
+    private LocalDate birhday;
     private String breed;
 
-    public Cats (String name, Date birhday, String breed) {
+    public Cats (String name, LocalDate birhday, String breed) {
         this.name = name;
         this.birhday = birhday;
         this.breed = breed;
